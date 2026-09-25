@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEON CLASSROOM</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="neon-line line1"></div>
+<div class="neon-line line2"></div>
+<div class="neon-line line3"></div>
+<div class="neon-line line4"></div>
+
+<header>
+    <div>
+        <h1>⚡ NEON CLASSROOM</h1>
+        <p>Virtual Classroom Dashboard</p>
+    </div>
+
+    <button onclick="openLogin()" class="gold-btn">
+        👨‍🏫 O‘qituvchi kirishi
+    </button>
+</header>
+
+<main>
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <span>👨‍🎓</span>
+            <h2 id="studentCount">0</h2>
+            <p>O‘quvchilar</p>
+        </div>
+
+        <div class="stat-card">
+            <span>👨‍🏫</span>
+            <h2 id="teacherCount">0</h2>
+            <p>O‘qituvchilar</p>
+        </div>
+
+        <div class="stat-card">
+            <span>🟢</span>
+            <h2 id="presentCount">0</h2>
+            <p>Bugun kelganlar</p>
+        </div>
+
+        <div class="stat-card">
+            <span>⭐</span>
+            <h2 id="gradeCount">0</h2>
+            <p>Qo‘yilgan baholar</p>
+        </div>
+
+    </section>
+
+
+    <section class="dashboard">
+
+        <div class="panel">
+
+            <div class="panel-title">
+                <h2>👨‍🎓 O‘quvchilar</h2>
+
+                <input
+                    type="text"
+                    id="searchStudent"
+                    placeholder="O‘quvchini qidirish..."
+                    oninput="renderStudents()"
+                >
+            </div>
+
+            <div id="studentList" class="student-list"></div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h2>👨‍🏫 O‘qituvchilar</h2>
+
+            <div id="teacherList"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- LOGIN MODAL -->
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeLogin()">×</button>
+
+        <h2>👨‍🏫 O‘qituvchi kirishi</h2>
+
+        <p class="small">
+            Ismni tanlang va maxsus qisqa parolni kiriting.
+        </p>
+
+        <select id="teacherSelect"></select>
+
+        <input
+            type="password"
+            id="teacherPassword"
+            placeholder="Parol"
+        >
+
+        <button onclick="teacherLogin()" class="gold-btn full">
+            KIRISH
+        </button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- TEACHER PANEL -->
+
+<div id="teacherPanel" class="teacher-panel">
+
+    <div class="teacher-header">
+
+        <div>
+            <h2>👨‍🏫 O‘qituvchi paneli</h2>
+            <p id="loggedTeacher"></p>
+        </div>
+
+        <button onclick="logout()" class="red-btn">
+            Chiqish
+        </button>
+
+    </div>
+
+
+    <div class="teacher-controls">
+
+        <button onclick="showAttendance()" class="gold-btn">
+            📋 Davomat
+        </button>
+
+        <button onclick="showGrades()" class="gold-btn">
+            ⭐ Baholar
+        </button>
+
+    </div>
+
+
+    <div id="teacherContent"></div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
